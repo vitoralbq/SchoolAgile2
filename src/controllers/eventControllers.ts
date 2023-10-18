@@ -2,10 +2,9 @@ import axios from "axios";
 import { Response, Request} from "express";
 import {open} from "sqlite";
 import sqlite3 from "sqlite3";
-import Event from "../eventModels";
+import {Event} from "../models/Event";
 //import { createDbConnection } from "../db/dbConfig"; - pq não usa?
 //import { Database } from "sqlite3"; - pq não usa?
-import logger from "../services/logger";
 
 
 const dbPromise = open({
@@ -13,17 +12,16 @@ const dbPromise = open({
     driver: sqlite3.Database,
     });
 
-    export const eventControllerGuestDetails = {  // Função assíncrona para criar um novo evento (exportada)
-        logger.info(req);
+    export const eventController = {  // Função assíncrona para criar um novo evento (exportada)
         createEvent: async (req: Request, res: Response) => {
           const db = await dbPromise; //estabelece conexão com o banco
           const event: Event = req.body; // Dados do evento vindos do corpo da requisição
           const usersServiceURL = process.env.USERS_SERVICE_URL;// URL do microsserviço de usuários, definida em variáveis de ambiente - cuidar .env
 
     if (
-      !event.event.Name ||
-      !event.eventLocation ||
-      !event.maxNumberOfPariticipants ||
+      !event.name ||
+      !event.location ||
+      !event.maxNumberOfParticipants ||
       !event.hoursOfDuration ||
       !event.typeOfEvent ||
       !event.eventHost ||
