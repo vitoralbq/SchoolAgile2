@@ -34,8 +34,8 @@ const dbPromise = open({
     const guestsDetails = [];
 
     // Loop para verificar e coletar detalhes dos convidados usando o microsserviço de usuários
-    for (const userId of event.guests) {
-      const handleUsersURL = `${usersServiceURL}/students/studentDetails/${userId}`;
+    for (const id of event.guests) {
+      const handleUsersURL = `${usersServiceURL}/students/studentDetails/${id}`;
       try {
         const userResponse = await axios.get(handleUsersURL);
         if (userResponse.status === 200) {

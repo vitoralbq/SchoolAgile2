@@ -6,7 +6,7 @@ import eventsRoutes from "./routes/eventsRoutes";
 dotenv.config();
 
 const server = express();
-const port = process.env.PORT;
+const port = 3002 //process.env.PORT;
 
 server.use(cors());
 server.use(express.urlencoded({ extended: false }));
