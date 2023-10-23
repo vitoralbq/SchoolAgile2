@@ -4,4 +4,4 @@ const logger = pino(
     pino.destination("./pino-logger.log")
 );
 
-export default logger;
+export {logger as log};
