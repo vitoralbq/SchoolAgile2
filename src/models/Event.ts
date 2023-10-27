@@ -7,6 +7,10 @@ export class Event {
     typeOfEvent: string = "";//livre, acadêmico, celebração
     eventHost:string[] = [];//usar class EventHost
     guests: string[] = []; 
+    date: string;
+    constructor(date:string){
+        this.date = date;
+    }
 
     /*emitCertificate(typeOfEvent: string, guests:string[], hoursOfDuration: number, eventName: string){
         if(typeOfEvent = "livre" || "acadêmico"){
